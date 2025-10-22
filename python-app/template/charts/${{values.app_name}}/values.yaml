@@ -10,9 +10,6 @@ podAnnotations: {}
 podLabels: {}
 serviceAccount:
   create: false
-  automount: true
-  annotations: {}
-  name: ""
 podSecurityContext: {}
 securityContext: {}
 service:
@@ -28,10 +25,20 @@ ingress:
         - path: /
           pathType: Prefix
   tls: []
-resources:
-  requests:
-    cpu: 50m
-    memory: 50M
+httpRoute:
+  enabled: false
+  annotations: {}
+  parentRefs:
+    - name: gateway
+      sectionName: http
+  hostnames:
+    - chart-example.local
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /headers
+resources: {}
 livenessProbe:
   httpGet:
     path: /api/v1/healthz
