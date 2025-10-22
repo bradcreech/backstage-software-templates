@@ -4,7 +4,7 @@ metadata:
   name: ${{values.app_name}}
   description: Python app that displays host, time, and a message.
   annotations:
-    github.com/project-slug: bradcreech/${{values.app_name}}
+    github.com/project-slug: bradcreech-org/${{values.app_name}}
     backstage.io/techdocs-ref: dir:.
 spec:
   type: service
