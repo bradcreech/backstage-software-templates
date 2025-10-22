@@ -9,5 +9,5 @@ RUN pip3 install --trusted-host pypi.org --trusted-host pypi.python.org --truste
 COPY ./src /src
 
 EXPOSE 5000
-
+export NODE_OPTIONS="${NODE_OPTIONS:-} --no-node-snapshot"
 CMD ["python3", "/src/app.py"]
